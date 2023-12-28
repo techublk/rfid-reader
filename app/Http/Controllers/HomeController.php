@@ -4,13 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\configuration;
+use App\Models\history;
 use App\Models\rfid;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Foreach_;
+use Psy\Command\HistoryCommand;
 
 use function PHPUnit\Framework\isEmpty;
 
 class HomeController extends Controller
 {
+
+    protected $task;
+
+    public function __construct(History $history){
+        $this->task = $history;
+    }
+
+
      public function index(){
 
         $permentConfigurations = Configuration::first();
@@ -52,24 +63,26 @@ class HomeController extends Controller
                 
                 
 
-            // if($permentConfigurations->c2 == $latestHomeRecord->c2){
-            //     $c2 = 1;
-            // }elseif(empty($permentConfigurations->c2)){
-            //     $c2 = -1;
-            // }else{
-            //     $c2 = 0;
-            // }
-
-            // if($permentConfigurations->c3 == $latestHomeRecord->c3){
-            //     $c3 = 1;
-            // }elseif(empty($permentConfigurations->c3)){
-            //     $c3 = -1;
-            // }else{
-            //     $c3 = 0;
-            // }
         }
+
+
+
+        /////
+
+        history::create([
+            'c0' => $c0,
+            'c1' => $c1,
+            'c2' => $c2,
+            'c3' => $c3,
+        ]);
+
+        $allRecords = History::orderBy('created_at', 'desc')->get();
+
+
+
+
         
 
-        return view('pages.home.index', ['c0' => $c0, 'c1' => $c1, 'c2' => $c2, 'c3' => $c3]);
+        return view('pages.home.index', ['c0' => $c0, 'c1' => $c1, 'c2' => $c2, 'c3' => $c3, 'colorArr' => $allRecords]);
     }
 }
