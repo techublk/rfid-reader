@@ -21,6 +21,6 @@ Route::get('/configuration', [ConfigurationController::class, 'index'])->name('c
 
 Route::get('/configuration/{id}', [ConfigurationController::class, 'show'])->name('configuration.show');
 
-Route::post('/configuration/save', [ConfigurationController::class, 'update'])->name('configuration.update');
+Route::post('/configuration/save/1,2', [ConfigurationController::class, 'update'])->name('configuration.update');
 
 

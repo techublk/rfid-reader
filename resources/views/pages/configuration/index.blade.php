@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-4">
         <h1 class=" text-center">Configarations</h1>
 
         <form method="post" action="{{ route('configuration.update') }}">
@@ -26,6 +26,7 @@
         @endforeach
         </form>
         
+        @isset($configuration)
         <table class="table table-striped table-success table-striped mt-5 text-center">
         <thead>
             <tr>
@@ -57,6 +58,10 @@
             </tr>
         </tbody>
         </table>
+        @endisset
+
+
+        
     </div>
 @endsection
 
@@ -79,5 +84,7 @@ input.form-control {
 
 
 @push('js')
+<script>
 
+</script>
 @endpush
