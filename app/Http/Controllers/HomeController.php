@@ -18,7 +18,7 @@ class HomeController extends Controller
 
         if($latestHomeRecord && $permentConfigurations){
 
-            if($permentConfigurations->c0 == $latestHomeRecord->c0){
+            if(($permentConfigurations->c0 == $latestHomeRecord->c0) && $permentConfigurations->c0 !== null){
                 $c0 = 1;
             }elseif(empty($permentConfigurations->c0)){
                 $c0 = -1;
@@ -26,7 +26,7 @@ class HomeController extends Controller
                 $c0 = 0;
             }
 
-            if($permentConfigurations->c1 == $latestHomeRecord->c1){
+            if(($permentConfigurations->c1 == $latestHomeRecord->c1) && $permentConfigurations->c1 !== null){
                 $c1 = 1;
             }elseif(empty($permentConfigurations->c1)){
                 $c1 = -1;
@@ -34,7 +34,7 @@ class HomeController extends Controller
                 $c1 = 0;
             }
 
-            if($permentConfigurations->c2 == $latestHomeRecord->c2){
+            if(($permentConfigurations->c2 == $latestHomeRecord->c2) && $permentConfigurations->c2!== null){
                 $c2 = 1;
             }elseif(empty($permentConfigurations->c2)){
                 $c2 = -1;
@@ -42,13 +42,31 @@ class HomeController extends Controller
                 $c2 = 0;
             }
 
-            if($permentConfigurations->c3 == $latestHomeRecord->c3){
+            if(($permentConfigurations->c3 == $latestHomeRecord->c3) && $permentConfigurations->c3!== null){
                 $c3 = 1;
-            }elseif(empty($permentConfigurations->c3)){
-                $c3 = -1;
-            }else{
-                $c3 = 0;
+                }elseif(empty($permentConfigurations->c3)){
+                    $c3 = -1;
+                }else{
+                    $c3 = 0;
             }
+                
+                
+
+            // if($permentConfigurations->c2 == $latestHomeRecord->c2){
+            //     $c2 = 1;
+            // }elseif(empty($permentConfigurations->c2)){
+            //     $c2 = -1;
+            // }else{
+            //     $c2 = 0;
+            // }
+
+            // if($permentConfigurations->c3 == $latestHomeRecord->c3){
+            //     $c3 = 1;
+            // }elseif(empty($permentConfigurations->c3)){
+            //     $c3 = -1;
+            // }else{
+            //     $c3 = 0;
+            // }
         }
         
 
