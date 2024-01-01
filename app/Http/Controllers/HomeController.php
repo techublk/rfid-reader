@@ -27,6 +27,8 @@ class HomeController extends Controller
         $permentConfigurations = Configuration::first();
         $latestHomeRecord = rfid::latest()->first();
 
+        $c0 = $c1 = $c2 = $c3 = null;
+
         if($latestHomeRecord && $permentConfigurations){
 
             if(($permentConfigurations->c0 == $latestHomeRecord->c0) && $permentConfigurations->c0 !== null){
