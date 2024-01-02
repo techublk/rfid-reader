@@ -18,7 +18,10 @@
 
       <ul class="navbar-nav  mb-2 mb-lg-0 d-flex" role="search">
         <li class="nav-item">
-          <a class="nav-link active" href="#" aria-disabled="true">LOG OUT</a>
+          <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button class="nav-link active" type="submit" aria-disabled="true">Logout</button>
+          </form>
         </li>
       </ul>
     </div>
