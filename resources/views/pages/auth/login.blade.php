@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid bg-dark text-light" style="height: 100vh;">
+    <div class="container-fluid bg-body-secondary text-light" style="height: 100vh;">
         <div class="row justify-content-center">
             <div class="col-md-6 my-5">
                 <div class="card mx-auto border-light" style="background-color: #1e1e1e; border-color: #343a40; margin-top: 40px;">
@@ -41,3 +41,13 @@
         </div>
     </div>
 @endsection
+
+@push('css')
+<style>
+    .container {
+        background-color: #60656b;
+        color: #5b636b;
+    }
+
+</style>
+@endpush
