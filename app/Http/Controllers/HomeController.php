@@ -71,16 +71,11 @@ class HomeController extends Controller
             }
 
 
-            //Storing history
-            $this->task->create([
-                'c0' => $c0,
-                'c1' => $c1,
-                'c2' => $c2,
-                'c3' => $c3,
-            ]);
+            $this->processRfidRecord($latestHomeRecord, $c0, $c1, $c2, $c3);
 
             // all records
-            $allRecords = history::orderBy('created_at', 'desc')->get();
+            $allRecords = History::orderBy('created_at', 'desc')->offset(1)->limit(PHP_INT_MAX)->get();
+
 
 
             if ($request->wantsJson()) {
@@ -93,6 +88,24 @@ class HomeController extends Controller
 
 
         return view('pages.home.index', ['c0' => $c0, 'c1' => $c1, 'c2' => $c2, 'c3' => $c3, 'colorArr' => []]);
+        
+    }
+
+    private function processRfidRecord(Rfid $record, $c0, $c1, $c2, $c3)
+    {
+
+        if($record->processed === 0) {
+
+            History::create([
+            'c0' => $c0,
+            'c1' => $c1,
+            'c2' => $c2,
+            'c3' => $c3,
+            ]);
+
+            $record->update(['processed' => true]);
+            
+        };
         
     }
 }
