@@ -13,6 +13,7 @@ class rfid extends Model
         'c0',
         'c1',
         'c2',
-        'c3'
+        'c3',
+        'processed',
     ];
 }
