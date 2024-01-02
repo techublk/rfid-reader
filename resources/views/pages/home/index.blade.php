@@ -4,7 +4,6 @@
 
 
 
-<h1 class="text-center">Home</h1>
 
 @include('components.colourditector')
 
@@ -27,6 +26,10 @@
 
         .status-icon.red {
             color: red;
+        }
+
+        body{
+            background-color: ghostwhite
         }
     </style>
 @endpush
