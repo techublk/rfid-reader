@@ -14,7 +14,7 @@
                     <div class="col-md-3 text-center">
                         <a href="{{ route('configuration.show', $column) }}" class="btn btn-primary mb-2">Add Configuration</a>
                     </div>
-                    <div class="col-md-3 text-center">
+                    <div class="col-md-3 text-center">c1
                         @if (isset($latestRecord) && $selectedcolumn === $column )
                             <div class="input-group">
                                 <input type="text" name="{{ $column }}" class="form-control" value="{{ $latestRecord->$column }}" placeholder="" readonly>

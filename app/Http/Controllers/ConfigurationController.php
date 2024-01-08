@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\configuration;
-use App\Models\rfid;
+use App\Models\Configuration;
+use App\Models\Rfid;
 use Illuminate\Http\Request;
 
 class ConfigurationController extends Controller

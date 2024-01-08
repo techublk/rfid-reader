@@ -9,6 +9,8 @@ class rfid extends Model
 {
     use HasFactory;
 
+    protected $table = 'rfid';
+
     protected $fillable = [
         'c0',
         'c1',
